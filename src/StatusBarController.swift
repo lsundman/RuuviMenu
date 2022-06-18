@@ -21,7 +21,7 @@ func niceDesc(_ meas: RuuviMeasurement) -> String {
     "│",
     formatTemp(meas),
     String(format: "%.1f\u{2009}RH", meas.humidity),
-    String(format: "%.1f\u{2009}kPa", meas.pressure),
+    String(format: "%.1f\u{2009}hPa", meas.pressure),
   ].joined(separator: " ")
 }
 
