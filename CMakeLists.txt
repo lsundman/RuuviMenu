@@ -2,13 +2,17 @@ cmake_minimum_required(VERSION 3.15)
 
 project(RuuviMenu LANGUAGES Swift)
 
-set(CMAKE_Swift_LANGUAGE_VERSION 5.0)
+set(CMAKE_Swift_LANGUAGE_VERSION 5.2)
 
 add_executable(
   ${CMAKE_PROJECT_NAME} MACOSX_BUNDLE
-  assets/Ruuvi.icns src/main.swift src/AppDelegate.swift
-  src/BluetoothDelegate.swift src/StatusBarController.swift
-  src/RuuviParsing.swift)
+  assets/Ruuvi.icns
+  src/main.swift
+  src/AppDelegate.swift
+  src/BluetoothDelegate.swift
+  src/StatusBarController.swift
+  src/RuuviParsing.swift
+  src/PrefsViewController.swift)
 
 set_target_properties(
   RuuviMenu

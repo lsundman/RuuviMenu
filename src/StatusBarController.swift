@@ -83,7 +83,6 @@ class StatusBarController {
           action: #selector(itemClicked), keyEquivalent: "")
 
         menuItem.target = self
-        menuItem.isEnabled = true
 
         menuItemCache[id] = menuItem
         statusItem.menu?.insertItem(menuItem, at: 0)
@@ -114,17 +113,23 @@ class StatusBarController {
     }
 
     statusItem.menu = NSMenu()
-    statusItem.menu?.autoenablesItems = true
     statusItem.button?.title = "…"
 
-    let quitButton = NSMenuItem(
+    let quitMenuItem = NSMenuItem(
       title: "Quit",
       action: #selector(NSApplication.shared.terminate),
-      keyEquivalent: "")
+      keyEquivalent: "q")
+
+    let prefsMenuItem = NSMenuItem(
+      title: "Preferences",
+      action: #selector(appDelegate.openPrefsWindow),
+      keyEquivalent: ",")
+    prefsMenuItem.target = appDelegate
 
     if let menu = statusItem.menu {
       menu.addItem(NSMenuItem.separator())
-      menu.addItem(quitButton)
+      menu.addItem(prefsMenuItem)
+      menu.addItem(quitMenuItem)
     }
   }
 
