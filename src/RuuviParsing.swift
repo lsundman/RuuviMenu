@@ -36,7 +36,7 @@ struct RuuviMeasurement: CustomStringConvertible {
     battery = Double((smush(payload, 13..<15) >> 5) + UInt16(1600)) / 1000
     sequenceNumber = smush(payload, 16..<18)
 
-    mac = dataToHex(payload.subdata(in: 18..<23), separator: ":")
+    mac = dataToHex(payload.subdata(in: 18..<24), separator: ":")
     rawRecord = dataToHex(payload, separator: "")
   }
 
